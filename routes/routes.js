@@ -4,12 +4,26 @@ var upload = multer({ dest: "./productos/" });
 var router = express.Router();
 var controllers = require('.././controllers');
 
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+//DOCUMENTO ENTRADA
+router.get('/buscarEntradas', controllers.Usuario.seguridad, controllers.Entrada.buscarEntradas);
+router.get('/buscarEntradasCombo', controllers.Usuario.seguridad, controllers.Entrada.buscarEntradasCombo);
+router.post('/guardarEntrada', controllers.Usuario.seguridad, controllers.Entrada.guardarEntrada);
+router.post('/modificarEntrada', controllers.Usuario.seguridad, controllers.Entrada.modificarEntrada);
+router.get('/eliminarEntrada', controllers.Usuario.seguridad, controllers.Entrada.eliminarEntrada);
+
+//TARJETAS-CREDITO-DEBITO
+router.get('/buscarTarjeta', controllers.Usuario.seguridad, controllers.Tarjetas.buscarTarjeta);
+router.post('/guardarTarjeta', controllers.Usuario.seguridad, controllers.Tarjetas.guardarTarjeta);
+router.post('/modificarTarjeta', controllers.Usuario.seguridad, controllers.Tarjetas.modificarTarjeta);
+router.get('/eliminarTarjeta', controllers.Usuario.seguridad, controllers.Tarjetas.eliminarTarjeta);
+
 //IMAGEN PRODUCTO
 router.post('/subirImagenes', upload.array('file', 5), controllers.Imagenes.subirImagenes);
+router.get('/guardarImagenes',  controllers.Usuario.seguridad, controllers.Imagenes.guardarImagenes);
 
 //PRODUCTOS
 router.get('/buscarProductos', controllers.Usuario.seguridad, controllers.Producto.buscarProductos);

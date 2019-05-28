@@ -34,8 +34,8 @@ module.exports = {
         var db = mysql.createConnection(config);
         db.connect();
 
-        db.query("INSERT INTO `usuario` (`email`, `contrasena`, `rol`, `estado`, `foto`, `fotoLugar`) VALUES (?,?,?,?,?,?)", 
-        [req.body.email, encrypt(req.body.identificacion), 'VENDEDOR', '1', "user-profile.png", "ELECTRONIX"], function (err, rows, fields) {
+        db.query("INSERT INTO `usuario` (`email`, `contrasena`, `rol`, `estado`, `plataforma`) VALUES (?,?,?,?,?)", 
+        [req.body.email, encrypt(req.body.identificacion), 'VENDEDOR', '1', "ELECTRONIX"], function (err, rows, fields) {
             if (err) {
                 console.log(err);
                 db.end();

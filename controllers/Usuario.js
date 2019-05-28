@@ -104,7 +104,7 @@ module.exports = {
       +" usuario "
       +" LEFT JOIN vendedor ON vendedor.idUsuario = usuario.idUsuario "
       +" LEFT JOIN cliente ON cliente.idUsuario = usuario.idUsuario "
-      +" WHERE usuario.plataforma "
+      +" WHERE "
       +" usuario.idUsuario = ?", [req.query.idUsuario], function(err, rows, fields) {
       if (err) {
         console.log(err);

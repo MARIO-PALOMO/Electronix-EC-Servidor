@@ -25,7 +25,7 @@ module.exports = {
         var db = mysql.createConnection(config);
         db.connect();
 
-        db.query("INSERT INTO `producto`(`codigo`, `serie`, `modelo`, `ensamblador`, `precioEntrada`, `precioSalida`, `imagen`, `descripcion`, `estado`, `idCategoria`, `idMarca`, `idUbicacion`, `idEntrada`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)", 
+        db.query("INSERT INTO `producto`(`codigo`, `serie`, `modelo`, `ensamblador`, `precioEntrada`, `precioSalida`, `descripcion`, `estado`, `idCategoria`, `idMarca`, `idUbicacion`, `idEntrada`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", 
         [
             req.body.codigo, 
             req.body.serie, 
@@ -33,7 +33,6 @@ module.exports = {
             req.body.ensamblador,
             req.body.precioEntrada,
             req.body.precioSalida,
-            req.body.imagen,
             req.body.descripcion,
             req.body.estado,
             req.body.idCategoria,
@@ -56,7 +55,7 @@ module.exports = {
         var db = mysql.createConnection(config);
         db.connect();
 
-        db.query("UPDATE `producto` SET `codigo` = ?, `serie` = ?, `modelo` = ?, `ensamblador` = ?, `precioEntrada` = ?, `precioSalida` = ?, `imagen` = ?, `descripcion` = ?, `estado` = ?, `idCategoria` = ?, `idMarca` = ?, `idUbicacion` = ? WHERE `idProducto` = ?", 
+        db.query("UPDATE `producto` SET `codigo` = ?, `serie` = ?, `modelo` = ?, `ensamblador` = ?, `precioEntrada` = ?, `precioSalida` = ?, `descripcion` = ?, `estado` = ?, `idCategoria` = ?, `idMarca` = ?, `idUbicacion` = ? WHERE `idProducto` = ?", 
         [
             req.body.codigo, 
             req.body.serie, 
@@ -64,7 +63,6 @@ module.exports = {
             req.body.ensamblador,
             req.body.precioEntrada,
             req.body.precioSalida,
-            req.body.imagen,
             req.body.descripcion,
             req.body.estado,
             req.body.idCategoria,
